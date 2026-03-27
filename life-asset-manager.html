@@ -11,243 +11,170 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
 :root {
-–bg: #f5f5f7;
-–card: #ffffff;
-–nav-bg: rgba(255,255,255,0.85);
-–border: rgba(0,0,0,0.08);
-–text: #1d1d1f;
-–text2: #6e6e73;
-–text3: #aeaeb2;
-–green: #34c759;
-–yellow: #ff9f0a;
-–red: #ff3b30;
-–blue: #0071e3;
-–seg-bg: #e5e5ea;
-–divider: #f2f2f7;
+  --bg: #f5f5f7; --card: #fff; --nav-bg: rgba(255,255,255,0.85);
+  --border: rgba(0,0,0,0.08); --text: #1d1d1f; --text2: #6e6e73; --text3: #aeaeb2;
+  --green: #34c759; --yellow: #ff9f0a; --red: #ff3b30; --blue: #0071e3;
+  --seg-bg: #e5e5ea; --divider: #f2f2f7;
 }
-
-html { background: var(–bg); }
-body {
-background: var(–bg);
-color: var(–text);
-font-family: ‘Outfit’, -apple-system, ‘Hiragino Sans’, sans-serif;
-min-height: 100vh;
--webkit-font-smoothing: antialiased;
-overscroll-behavior-y: none;
-}
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--text); font-family: 'Outfit',-apple-system,'Hiragino Sans',sans-serif; min-height:100vh; -webkit-font-smoothing:antialiased; overscroll-behavior-y:none; }
 
 /* NAV */
-.nav {
-position: sticky; top: 0; z-index: 200;
-background: var(–nav-bg);
-backdrop-filter: saturate(180%) blur(20px);
--webkit-backdrop-filter: saturate(180%) blur(20px);
-border-bottom: 1px solid var(–border);
-padding-top: env(safe-area-inset-top, 0px);
-}
-.nav-inner {
-display: flex; align-items: center; justify-content: space-between;
-padding: 12px 20px; height: 52px;
-}
-.nav-title { font-size: 17px; font-weight: 700; color: var(–text); letter-spacing: -0.3px; }
-.nav-add {
-background: var(–blue); color: #fff; border: none;
-border-radius: 980px; padding: 7px 16px;
-font-size: 13px; font-weight: 600; font-family: inherit;
-cursor: pointer; display: flex; align-items: center; gap: 4px;
-}
+.nav { position:sticky; top:0; z-index:200; background:var(–nav-bg); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid var(–border); padding-top:env(safe-area-inset-top,0px); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; height:52px; }
+.nav-title { font-size:17px; font-weight:700; color:var(–text); letter-spacing:-0.3px; }
+.nav-right { display:flex; gap:8px; align-items:center; }
+.nav-add { background:var(–blue); color:#fff; border:none; border-radius:980px; padding:7px 16px; font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; }
+.nav-cfg { background:var(–seg-bg); border:none; border-radius:980px; width:34px; height:34px; display:flex; align-items:center; justify-content:center; font-size:16px; cursor:pointer; }
 
 /* MAIN TABS */
-.main-tabs {
-display: flex; gap: 0; padding: 0 16px 0;
-border-bottom: 1px solid var(–border);
-background: var(–nav-bg);
-backdrop-filter: saturate(180%) blur(20px);
--webkit-backdrop-filter: saturate(180%) blur(20px);
-}
-.main-tab {
-flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-padding: 10px 0; border: none; background: transparent;
-color: var(–text2); font-size: 14px; font-weight: 600; font-family: inherit;
-cursor: pointer;
-border-bottom: 2px solid transparent; margin-bottom: -1px;
-transition: color .15s, border-color .15s;
-}
-.main-tab.active { color: var(–blue); border-bottom-color: var(–blue); }
-.tab-badge {
-font-size: 11px; padding: 1px 7px; border-radius: 20px;
-background: var(–seg-bg); color: var(–text2); font-weight: 700;
-transition: all .15s;
-}
-.main-tab.active .tab-badge { background: var(–blue); color: #fff; }
+.main-tabs { display:flex; border-bottom:1px solid var(–border); background:var(–nav-bg); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+.main-tab { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:10px 0; border:none; background:transparent; color:var(–text2); font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .15s,border-color .15s; }
+.main-tab.active { color:var(–blue); border-bottom-color:var(–blue); }
+.tab-badge { font-size:11px; padding:1px 7px; border-radius:20px; background:var(–seg-bg); color:var(–text2); font-weight:700; transition:all .15s; }
+.main-tab.active .tab-badge { background:var(–blue); color:#fff; }
 
 /* PAGE */
-.page { max-width: 640px; margin: 0 auto; padding: 20px 16px 100px; }
-
-/* HERO */
-.hero { margin-bottom: 24px; }
-.hero-eyebrow { font-size: 12px; color: var(–text2); font-weight: 500; letter-spacing: 0.5px; margin-bottom: 6px; }
-.hero-h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 4px; }
-.hero-sub { font-size: 15px; color: var(–text2); }
+.page { max-width:640px; margin:0 auto; padding:20px 16px 100px; }
+.hero { margin-bottom:24px; }
+.hero-eyebrow { font-size:12px; color:var(–text2); font-weight:500; letter-spacing:0.5px; margin-bottom:6px; }
+.hero-h1 { font-size:34px; font-weight:800; letter-spacing:-1px; line-height:1.1; margin-bottom:4px; }
+.hero-sub { font-size:15px; color:var(–text2); }
 
 /* STATS */
-.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
-.stat {
-background: var(–card); border-radius: 16px;
-padding: 14px 16px;
-box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
-}
-.stat-label { font-size: 11px; color: var(–text2); font-weight: 500; margin-bottom: 4px; }
-.stat-val { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+.stat { background:var(–card); border-radius:16px; padding:14px 16px; box-shadow:0 1px 0 rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04); }
+.stat-label { font-size:11px; color:var(–text2); font-weight:500; margin-bottom:4px; }
+.stat-val { font-size:22px; font-weight:800; letter-spacing:-0.5px; }
+
+/* SYNC STATUS */
+.sync-bar { display:flex; align-items:center; gap:8px; font-size:12px; color:var(–text2); margin-bottom:16px; padding:10px 14px; background:var(–card); border-radius:12px; box-shadow:0 1px 0 rgba(0,0,0,.06); }
+.sync-dot { width:7px; height:7px; border-radius:50%; background:var(–text3); flex-shrink:0; }
+.sync-dot.ok { background:var(–green); }
+.sync-dot.err { background:var(–red); }
+.sync-dot.syncing { background:var(–yellow); animation:pulse .8s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+.sync-btn { margin-left:auto; background:var(–seg-bg); border:none; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:600; color:var(–text); cursor:pointer; font-family:inherit; }
 
 /* ALERT */
-.alert-banner {
-background: #fff8ec; border: 1px solid #ffd580;
-border-radius: 14px; padding: 12px 14px; margin-bottom: 20px;
-display: flex; gap: 10px; align-items: flex-start;
-}
-.alert-title { font-size: 13px; font-weight: 700; color: #3a1a00; margin-bottom: 3px; }
-.alert-text { font-size: 12px; color: #7c4700; line-height: 1.7; }
+.alert-banner { background:#fff8ec; border:1px solid #ffd580; border-radius:14px; padding:12px 14px; margin-bottom:20px; display:flex; gap:10px; align-items:flex-start; }
+.alert-title { font-size:13px; font-weight:700; color:#3a1a00; margin-bottom:3px; }
+.alert-text { font-size:12px; color:#7c4700; line-height:1.7; }
 
 /* TOOLBAR */
-.toolbar {
-display: flex; justify-content: space-between; align-items: center;
-margin-bottom: 16px; gap: 10px; flex-wrap: wrap;
-}
-.seg { display: flex; background: var(–seg-bg); border-radius: 9px; padding: 2px; gap: 2px; }
-.seg-btn {
-border: none; border-radius: 7px; padding: 5px 14px;
-font-size: 13px; font-weight: 600; cursor: pointer;
-background: transparent; color: var(–text2);
-transition: all .15s; font-family: inherit;
-}
-.seg-btn.on { background: var(–card); color: var(–text); box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
-.sort-sel {
-background: var(–card); border: 1px solid #d2d2d7;
-border-radius: 9px; padding: 6px 10px;
-font-size: 13px; color: var(–text); font-family: inherit; outline: none;
-}
+.toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:10px; flex-wrap:wrap; }
+.seg { display:flex; background:var(–seg-bg); border-radius:9px; padding:2px; gap:2px; }
+.seg-btn { border:none; border-radius:7px; padding:5px 14px; font-size:13px; font-weight:600; cursor:pointer; background:transparent; color:var(–text2); transition:all .15s; font-family:inherit; }
+.seg-btn.on { background:var(–card); color:var(–text); box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.sort-sel { background:var(–card); border:1px solid #d2d2d7; border-radius:9px; padding:6px 10px; font-size:13px; color:var(–text); font-family:inherit; outline:none; }
 
 /* GRID */
-.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-@media(min-width:560px){ .grid { grid-template-columns: 1fr 1fr; } }
+.grid { display:grid; grid-template-columns:1fr; gap:14px; }
+@media(min-width:560px){ .grid { grid-template-columns:1fr 1fr; } }
 
 /* CARD */
-.card {
-background: var(–card); border-radius: 20px; overflow: hidden;
-box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.05);
-border: 1.5px solid transparent;
-transition: transform .18s, box-shadow .18s;
-cursor: pointer;
-}
-.card:active { transform: scale(0.98); }
-.card.urgent { border-color: #ffd580; }
-.card-accent { height: 4px; }
-.card-body { padding: 16px 18px 18px; }
-.card-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
-.card-icon {
-width: 42px; height: 42px; border-radius: 12px;
-background: var(–bg); display: flex; align-items: center; justify-content: center; font-size: 20px;
-}
-.card-info { margin-left: 11px; flex: 1; min-width: 0; }
-.card-name { font-size: 15px; font-weight: 700; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-maker { font-size: 11px; color: var(–text2); margin-top: 2px; }
-.card-price { font-size: 13px; font-weight: 600; color: var(–text2); white-space: nowrap; padding-left: 8px; }
-.divider { height: 1px; background: var(–divider); margin-bottom: 14px; }
-
-/* SECTIONS */
-.sec { background: var(–divider); border-radius: 12px; padding: 11px 13px; margin-bottom: 10px; }
-.sec-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
-.sec-label { font-size: 12px; color: var(–text2); font-weight: 600; }
-.sec-sub { font-size: 11px; color: var(–text3); margin-top: 3px; }
-
-/* BADGE */
-.badge {
-display: inline-flex; align-items: center; gap: 4px;
-border-radius: 980px; padding: 3px 9px;
-font-size: 11px; font-weight: 700;
-}
-.badge-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-
-/* HP BAR */
-.hp-row { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-top: 10px; margin-bottom: 5px; }
-.hp-track { height: 6px; background: var(–seg-bg); border-radius: 3px; overflow: hidden; }
-.hp-fill { height: 100%; border-radius: 3px; transition: width .5s ease; }
-.hp-caption { font-size: 10px; color: var(–text3); text-align: right; margin-top: 3px; }
-.card-note { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(–divider); font-size: 11px; color: var(–text3); }
+.card { background:var(–card); border-radius:20px; overflow:hidden; box-shadow:0 1px 0 rgba(0,0,0,.06),0 2px 12px rgba(0,0,0,.05); border:1.5px solid transparent; transition:transform .18s,box-shadow .18s; cursor:pointer; }
+.card:active { transform:scale(0.98); }
+.card.urgent { border-color:#ffd580; }
+.card-accent { height:4px; }
+.card-body { padding:16px 18px 18px; }
+.card-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:16px; }
+.card-icon { width:42px; height:42px; border-radius:12px; background:var(–bg); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.card-info { margin-left:11px; flex:1; min-width:0; }
+.card-name { font-size:15px; font-weight:700; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card-maker { font-size:11px; color:var(–text2); margin-top:2px; }
+.card-price { font-size:13px; font-weight:600; color:var(–text2); white-space:nowrap; padding-left:8px; }
+.divider { height:1px; background:var(–divider); margin-bottom:14px; }
+.sec { background:var(–divider); border-radius:12px; padding:11px 13px; margin-bottom:10px; }
+.sec-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:3px; }
+.sec-label { font-size:12px; color:var(–text2); font-weight:600; }
+.sec-sub { font-size:11px; color:var(–text3); margin-top:3px; }
+.badge { display:inline-flex; align-items:center; gap:4px; border-radius:980px; padding:3px 9px; font-size:11px; font-weight:700; }
+.badge-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+.hp-row { display:flex; justify-content:space-between; font-size:12px; font-weight:600; margin-top:10px; margin-bottom:5px; }
+.hp-track { height:6px; background:var(–seg-bg); border-radius:3px; overflow:hidden; }
+.hp-fill { height:100%; border-radius:3px; transition:width .5s ease; }
+.hp-caption { font-size:10px; color:var(–text3); text-align:right; margin-top:3px; }
+.card-note { margin-top:12px; padding-top:12px; border-top:1px solid var(–divider); font-size:11px; color:var(–text3); }
 
 /* EMPTY */
-.empty { text-align: center; padding: 60px 0; }
-.empty-icon { font-size: 48px; margin-bottom: 12px; }
-.empty-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-.empty-sub { font-size: 14px; color: var(–text2); }
+.empty { text-align:center; padding:60px 0; }
+.empty-icon { font-size:48px; margin-bottom:12px; }
+.empty-title { font-size:18px; font-weight:700; margin-bottom:6px; }
+.empty-sub { font-size:14px; color:var(–text2); }
 
-/* MODAL OVERLAY */
-.overlay {
-position: fixed; inset: 0; z-index: 500;
-background: rgba(0,0,0,0.45);
-backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-display: flex; align-items: flex-end; justify-content: center;
-opacity: 0; pointer-events: none;
-transition: opacity .2s;
-}
-.overlay.open { opacity: 1; pointer-events: all; }
-
-/* SHEET */
-.sheet {
-background: var(–card);
-border-radius: 22px 22px 0 0;
-width: 100%; max-width: 600px;
-max-height: 92vh; overflow-y: auto;
-padding: 12px 22px calc(env(safe-area-inset-bottom, 0px) + 28px);
-transform: translateY(100%);
-transition: transform .28s cubic-bezier(.32,1,.23,1);
--webkit-overflow-scrolling: touch;
-}
-.overlay.open .sheet { transform: translateY(0); }
-.sheet-handle {
-width: 36px; height: 4px; background: #d2d2d7;
-border-radius: 2px; margin: 0 auto 22px;
-}
-.sheet-title { font-size: 20px; font-weight: 800; margin-bottom: 22px; }
+/* OVERLAY */
+.overlay { position:fixed; inset:0; z-index:500; background:rgba(0,0,0,.45); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:flex-end; justify-content:center; opacity:0; pointer-events:none; transition:opacity .2s; }
+.overlay.open { opacity:1; pointer-events:all; }
+.sheet { background:var(–card); border-radius:22px 22px 0 0; width:100%; max-width:600px; max-height:92vh; overflow-y:auto; padding:12px 22px calc(env(safe-area-inset-bottom,0px) + 28px); transform:translateY(100%); transition:transform .28s cubic-bezier(.32,1,.23,1); -webkit-overflow-scrolling:touch; }
+.overlay.open .sheet { transform:translateY(0); }
+.sheet-handle { width:36px; height:4px; background:#d2d2d7; border-radius:2px; margin:0 auto 22px; }
+.sheet-title { font-size:20px; font-weight:800; margin-bottom:22px; }
 
 /* FORM */
-.f-group { margin-bottom: 15px; }
-.f-label { display: block; font-size: 12px; font-weight: 700; color: var(–text2); margin-bottom: 5px; letter-spacing: 0.2px; }
-.f-input {
-width: 100%; background: var(–bg); border: 1.5px solid transparent;
-border-radius: 11px; padding: 11px 13px; font-size: 16px; color: var(–text);
-outline: none; transition: border-color .15s; font-family: inherit;
--webkit-appearance: none; appearance: none;
-}
-.f-input:focus { border-color: var(–blue); background: #fff; }
-.f-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.btn-row { display: flex; gap: 10px; margin-top: 6px; }
-.btn-primary {
-flex: 1; background: var(–blue); color: #fff; border: none;
-border-radius: 13px; padding: 14px; font-size: 16px; font-weight: 700;
-font-family: inherit; cursor: pointer;
-}
-.btn-danger {
-background: #fff0f0; color: var(–red);
-border: 1.5px solid #ffd4d1; border-radius: 13px;
-padding: 14px 18px; font-size: 15px; font-weight: 700;
-font-family: inherit; cursor: pointer;
-}
+.f-group { margin-bottom:15px; }
+.f-label { display:block; font-size:12px; font-weight:700; color:var(–text2); margin-bottom:5px; }
+.f-input { width:100%; background:var(–bg); border:1.5px solid transparent; border-radius:11px; padding:11px 13px; font-size:16px; color:var(–text); outline:none; transition:border-color .15s; font-family:inherit; -webkit-appearance:none; }
+.f-input:focus { border-color:var(–blue); background:#fff; }
+.f-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.btn-row { display:flex; gap:10px; margin-top:6px; }
+.btn-primary { flex:1; background:var(–blue); color:#fff; border:none; border-radius:13px; padding:14px; font-size:16px; font-weight:700; font-family:inherit; cursor:pointer; }
+.btn-danger { background:#fff0f0; color:var(–red); border:1.5px solid #ffd4d1; border-radius:13px; padding:14px 18px; font-size:15px; font-weight:700; font-family:inherit; cursor:pointer; }
+.btn-secondary { background:var(–seg-bg); color:var(–text); border:none; border-radius:13px; padding:14px; font-size:15px; font-weight:700; font-family:inherit; cursor:pointer; flex:1; }
 
-/* BOTTOM SAFE AREA */
-.bottom-safe { height: env(safe-area-inset-bottom, 0px); }
+/* GITHUB SETUP SCREEN */
+.setup-screen { position:fixed; inset:0; z-index:1000; background:var(–bg); display:flex; align-items:flex-end; justify-content:center; }
+.setup-sheet { background:var(–card); border-radius:22px 22px 0 0; width:100%; max-width:600px; max-height:92vh; overflow-y:auto; padding:28px 24px calc(env(safe-area-inset-bottom,0px) + 32px); }
+.setup-title { font-size:22px; font-weight:800; margin-bottom:6px; }
+.setup-sub { font-size:14px; color:var(–text2); margin-bottom:24px; line-height:1.5; }
+.setup-info { background:#f0f7ff; border:1px solid #bfdbfe; border-radius:12px; padding:12px 14px; margin-bottom:20px; font-size:12px; color:#1e40af; line-height:1.7; }
+.setup-screen.hidden { display:none; }
 </style>
 
 </head>
 <body>
 
+<!-- GITHUB SETUP -->
+
+<div class="setup-screen" id="setup-screen">
+  <div class="setup-sheet">
+    <div style="font-size:32px;margin-bottom:12px">⚙️</div>
+    <div class="setup-title">GitHub 設定</div>
+    <div class="setup-sub">データをGitHubのプライベートリポジトリに保存します。設定はブラウザに保存されます（初回のみ）。</div>
+    <div class="setup-info">
+      📌 <b>Personal Access Token の作成方法</b><br>
+      GitHub → Settings → Developer settings<br>
+      → Personal access tokens → Tokens (classic)<br>
+      → Generate new token → <b>repo</b> にチェック
+    </div>
+    <div class="f-group">
+      <label class="f-label">GitHubユーザー名</label>
+      <input class="f-input" id="cfg-user" type="text" placeholder="例：Junkiki22" autocapitalize="none">
+    </div>
+    <div class="f-group">
+      <label class="f-label">リポジトリ名</label>
+      <input class="f-input" id="cfg-repo" type="text" placeholder="例：life-asset" autocapitalize="none">
+    </div>
+    <div class="f-group">
+      <label class="f-label">Personal Access Token（repo権限）</label>
+      <input class="f-input" id="cfg-token" type="password" placeholder="ghp_xxxxxxxxxxxx">
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" onclick="saveConfig()">保存して読み込む</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+
 <nav class="nav">
   <div class="nav-inner">
     <span class="nav-title">🏠 持ち物管理</span>
-    <button class="nav-add" onclick="openAdd()">＋ 追加</button>
+    <div class="nav-right">
+      <button class="nav-cfg" onclick="openConfig()" title="GitHub設定">⚙️</button>
+      <button class="nav-add" onclick="openAdd()">＋ 追加</button>
+    </div>
   </div>
   <div class="main-tabs">
     <button class="main-tab active" id="tab-appliance" onclick="switchTab('appliance')">
@@ -259,8 +186,7 @@ font-family: inherit; cursor: pointer;
   </div>
 </nav>
 
-<div class="page" id="page">
-
+<div class="page">
   <div class="hero">
     <div class="hero-eyebrow">Life Asset Manager</div>
     <h1 class="hero-h1">あなたの持ち物、<br>一目でわかる。</h1>
@@ -268,18 +194,15 @@ font-family: inherit; cursor: pointer;
   </div>
 
   <div class="stats">
-    <div class="stat">
-      <div class="stat-label">登録数</div>
-      <div class="stat-val" id="stat-total">0</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">要確認</div>
-      <div class="stat-val" id="stat-alert" style="color:var(--green)">0</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">総資産額</div>
-      <div class="stat-val" id="stat-asset">¥0万</div>
-    </div>
+    <div class="stat"><div class="stat-label">登録数</div><div class="stat-val" id="stat-total">0</div></div>
+    <div class="stat"><div class="stat-label">要確認</div><div class="stat-val" id="stat-alert" style="color:var(--green)">0</div></div>
+    <div class="stat"><div class="stat-label">総資産額</div><div class="stat-val" id="stat-asset">¥0万</div></div>
+  </div>
+
+  <div class="sync-bar">
+    <div class="sync-dot" id="sync-dot"></div>
+    <span id="sync-text">未接続</span>
+    <button class="sync-btn" onclick="syncFromGitHub()">同期</button>
   </div>
 
   <div id="alert-banner" style="display:none" class="alert-banner">
@@ -310,69 +233,90 @@ font-family: inherit; cursor: pointer;
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- ITEM MODAL -->
 
 <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
   <div class="sheet" id="sheet">
     <div class="sheet-handle"></div>
     <div class="sheet-title" id="sheet-title">追加</div>
+    <div class="f-group">
+      <label class="f-label">カテゴリ</label>
+      <select class="f-input" id="f-category" onchange="onCategoryChange()"></select>
+    </div>
+    <div class="f-group">
+      <label class="f-label">名前 *</label>
+      <input class="f-input" id="f-name" type="text" placeholder="例：ドラム式洗濯機">
+    </div>
+    <div class="f-grid2 f-group">
+      <div>
+        <label class="f-label">メーカー / ブランド</label>
+        <input class="f-input" id="f-maker" type="text" placeholder="例：Panasonic">
+      </div>
+      <div>
+        <label class="f-label">型番 / モデル</label>
+        <input class="f-input" id="f-model" type="text" placeholder="例：NA-VX900BL">
+      </div>
+    </div>
+    <div class="f-group">
+      <label class="f-label">購入日 *</label>
+      <input class="f-input" id="f-purchaseDate" type="date">
+    </div>
+    <div class="f-group">
+      <label class="f-label">購入金額（円）</label>
+      <input class="f-input" id="f-price" type="number" placeholder="0" inputmode="numeric">
+    </div>
+    <div class="f-grid2 f-group">
+      <div>
+        <label class="f-label">メーカー保証（年）</label>
+        <input class="f-input" id="f-warranty" type="number" value="1" min="0" inputmode="numeric">
+      </div>
+      <div>
+        <label class="f-label">延長保証（年・0=なし）</label>
+        <input class="f-input" id="f-ext-warranty" type="number" value="0" min="0" inputmode="numeric">
+      </div>
+    </div>
+    <div class="f-group">
+      <label class="f-label">耐用年数（年）</label>
+      <input class="f-input" id="f-lifespan" type="number" value="8" min="1" inputmode="numeric">
+    </div>
+    <div class="f-group">
+      <label class="f-label">メモ</label>
+      <textarea class="f-input" id="f-notes" rows="2" style="resize:vertical"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" id="btn-save" onclick="saveItem()">追加する</button>
+      <button class="btn-danger" id="btn-delete" style="display:none" onclick="deleteItem()">削除</button>
+    </div>
+  </div>
+</div>
 
-```
-<div class="f-group">
-  <label class="f-label">カテゴリ</label>
-  <select class="f-input" id="f-category" onchange="onCategoryChange()"></select>
-</div>
-<div class="f-group">
-  <label class="f-label">名前 *</label>
-  <input class="f-input" id="f-name" type="text" placeholder="例：ドラム式洗濯機">
-</div>
-<div class="f-grid2 f-group">
-  <div>
-    <label class="f-label">メーカー / ブランド</label>
-    <input class="f-input" id="f-maker" type="text" placeholder="例：Panasonic">
-  </div>
-  <div>
-    <label class="f-label">型番 / モデル</label>
-    <input class="f-input" id="f-model" type="text" placeholder="例：NA-VX900BL">
-  </div>
-</div>
-<div class="f-group">
-  <label class="f-label">購入日 *</label>
-  <input class="f-input" id="f-purchaseDate" type="date">
-</div>
-<div class="f-group">
-  <label class="f-label">購入金額（円）</label>
-  <input class="f-input" id="f-price" type="number" placeholder="0" inputmode="numeric">
-</div>
-<div class="f-grid2 f-group">
-  <div>
-    <label class="f-label">メーカー保証（年）</label>
-    <input class="f-input" id="f-warranty" type="number" value="1" min="0" inputmode="numeric">
-  </div>
-  <div>
-    <label class="f-label">延長保証（年・0=なし）</label>
-    <input class="f-input" id="f-ext-warranty" type="number" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-<div class="f-group">
-  <label class="f-label">耐用年数（年）</label>
-  <input class="f-input" id="f-lifespan" type="number" value="8" min="1" inputmode="numeric">
-</div>
-<div class="f-group">
-  <label class="f-label">メモ</label>
-  <textarea class="f-input" id="f-notes" rows="2" style="resize:vertical" placeholder="延長保証あり など"></textarea>
-</div>
-<div class="btn-row">
-  <button class="btn-primary" id="btn-save" onclick="saveItem()">追加する</button>
-  <button class="btn-danger" id="btn-delete" style="display:none" onclick="deleteItem()">削除</button>
-</div>
-```
+<!-- CONFIG MODAL -->
 
+<div class="overlay" id="cfg-overlay" onclick="if(event.target===this)closeCfg()">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">⚙️ GitHub 設定</div>
+    <div class="f-group">
+      <label class="f-label">GitHubユーザー名</label>
+      <input class="f-input" id="cfg2-user" type="text" autocapitalize="none">
+    </div>
+    <div class="f-group">
+      <label class="f-label">リポジトリ名</label>
+      <input class="f-input" id="cfg2-repo" type="text" autocapitalize="none">
+    </div>
+    <div class="f-group" style="margin-bottom:24px">
+      <label class="f-label">Personal Access Token</label>
+      <input class="f-input" id="cfg2-token" type="password">
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" onclick="saveConfig2()">保存して再接続</button>
+      <button class="btn-secondary" onclick="closeCfg()">キャンセル</button>
+    </div>
   </div>
 </div>
 
 <script>
-// ── DATA ────────────────────────────────────────────────
+// ── CATEGORIES ───────────────────────────────────────────
 const APPLIANCE_CAT = {
   "冷蔵庫":["❄️",10],"洗濯機":["🫧",10],"エアコン":["💨",10],"テレビ":["📺",8],
   "電子レンジ":["📡",10],"炊飯器":["🍚",10],"掃除機":["🌀",7],"食洗機":["🍽️",10],
@@ -384,324 +328,341 @@ const PERSONAL_CAT = {
   "カメラ":["📷",7],"イヤホン":["🎧",3],"財布":["👛",5],"バッグ":["👜",8],
   "時計":["🕐",15],"自転車":["🚲",8],"楽器":["🎸",20],"その他（身の回り）":["🎒",5]
 };
-
 const TABS = {
-  appliance: { label:"家電", icon:"🏠", cats: APPLIANCE_CAT },
-  personal:  { label:"身の回り品", icon:"🎒", cats: PERSONAL_CAT }
+  appliance:{ label:"家電", icon:"🏠", cats:APPLIANCE_CAT },
+  personal: { label:"身の回り品", icon:"🎒", cats:PERSONAL_CAT }
 };
-
-const SAMPLE = [
-  {id:1,tab:"appliance",name:"ドラム式洗濯機",category:"洗濯機",maker:"Panasonic",model:"NA-VX900BL",purchaseDate:"2020-03-15",warrantyYears:1,extWarranty:5,lifespanYears:10,price:180000,notes:"延長保証あり"},
-  {id:2,tab:"appliance",name:"4Kテレビ 65インチ",category:"テレビ",maker:"Sony",model:"KJ-65X9000J",purchaseDate:"2021-06-01",warrantyYears:1,extWarranty:3,lifespanYears:8,price:250000,notes:""},
-  {id:3,tab:"appliance",name:"冷蔵庫 500L",category:"冷蔵庫",maker:"日立",model:"R-HW54S",purchaseDate:"2019-11-20",warrantyYears:1,extWarranty:0,lifespanYears:10,price:150000,notes:""},
-  {id:4,tab:"appliance",name:"エアコン リビング",category:"エアコン",maker:"Daikin",model:"AN56YRS",purchaseDate:"2018-07-10",warrantyYears:1,extWarranty:5,lifespanYears:10,price:120000,notes:""},
-  {id:5,tab:"appliance",name:"電子レンジ",category:"電子レンジ",maker:"Panasonic",model:"NE-BS807",purchaseDate:"2017-02-28",warrantyYears:1,extWarranty:0,lifespanYears:10,price:45000,notes:""},
-  {id:6,tab:"personal",name:"iPhone 15 Pro",category:"スマートフォン",maker:"Apple",model:"A3101",purchaseDate:"2023-09-22",warrantyYears:1,extWarranty:2,lifespanYears:4,price:159800,notes:"AppleCare+ 加入済"},
-  {id:7,tab:"personal",name:"MacBook Pro 14",category:"ノートPC",maker:"Apple",model:"M3 Pro",purchaseDate:"2023-11-07",warrantyYears:1,extWarranty:3,lifespanYears:5,price:298000,notes:""},
-  {id:8,tab:"personal",name:"AirPods Pro",category:"イヤホン",maker:"Apple",model:"第2世代",purchaseDate:"2022-10-18",warrantyYears:1,extWarranty:0,lifespanYears:3,price:39800,notes:""},
-];
 
 // ── STATE ────────────────────────────────────────────────
 let items = [];
 let activeTab = 'appliance';
 let filter = 'all';
 let editingId = null;
+let githubSha = null; // for update
 
-// ── STORAGE ──────────────────────────────────────────────
-function load() {
+// ── CONFIG ───────────────────────────────────────────────
+function getCfg() {
+  return {
+    user:  localStorage.getItem('la-gh-user')  || '',
+    repo:  localStorage.getItem('la-gh-repo')  || '',
+    token: localStorage.getItem('la-gh-token') || '',
+  };
+}
+function setCfg(user, repo, token) {
+  localStorage.setItem('la-gh-user',  user);
+  localStorage.setItem('la-gh-repo',  repo);
+  localStorage.setItem('la-gh-token', token);
+}
+
+// ── GITHUB API ───────────────────────────────────────────
+const FILE = 'items.json';
+
+async function ghGet() {
+  const { user, repo, token } = getCfg();
+  setSyncState('syncing', '読み込み中…');
   try {
-    const d = localStorage.getItem('life-asset-v1');
-    items = d ? JSON.parse(d) : JSON.parse(JSON.stringify(SAMPLE));
-  } catch { items = JSON.parse(JSON.stringify(SAMPLE)); }
-}
-function save() {
-  try { localStorage.setItem('life-asset-v1', JSON.stringify(items)); } catch {}
+    const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${FILE}`, {
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (r.status === 404) {
+      // file doesn't exist yet — start fresh
+      githubSha = null;
+      items = [];
+      setSyncState('ok', '接続済み（データなし）');
+      saveLocal(); render(); return;
+    }
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const json = await r.json();
+    githubSha = json.sha;
+    const decoded = atob(json.content.replace(/\n/g,''));
+    items = JSON.parse(decoded);
+    saveLocal();
+    setSyncState('ok', `同期済み ${new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})}`);
+    render();
+  } catch(e) {
+    setSyncState('err', '接続エラー: ' + e.message);
+  }
 }
 
-// ── STATUS CALC ──────────────────────────────────────────
+async function ghPut() {
+  const { user, repo, token } = getCfg();
+  setSyncState('syncing', '保存中…');
+  try {
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(items, null, 2))));
+    const body = { message: 'LifeAsset: update items', content };
+    if (githubSha) body.sha = githubSha;
+    const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${FILE}`, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const json = await r.json();
+    githubSha = json.content.sha;
+    saveLocal();
+    setSyncState('ok', `保存済み ${new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})}`);
+  } catch(e) {
+    setSyncState('err', '保存エラー: ' + e.message);
+  }
+}
+
+function setSyncState(state, text) {
+  const dot = document.getElementById('sync-dot');
+  dot.className = 'sync-dot ' + state;
+  document.getElementById('sync-text').textContent = text;
+}
+
+function syncFromGitHub() { ghGet(); }
+
+// ── LOCAL STORAGE FALLBACK ───────────────────────────────
+function saveLocal() {
+  try { localStorage.setItem('life-asset-items', JSON.stringify(items)); } catch{}
+}
+function loadLocal() {
+  try {
+    const d = localStorage.getItem('life-asset-items');
+    if (d) { items = JSON.parse(d); return true; }
+  } catch{}
+  return false;
+}
+
+// ── STATUS ───────────────────────────────────────────────
 function getStatus(item) {
-  const today = new Date();
-  const purchase = new Date(item.purchaseDate);
-  const msMonth = 1000*60*60*24*30.5;
-  const msYear = msMonth*12;
-  const yearsOwned = (today - purchase) / msYear;
-  const totalW = item.extWarranty > 0 ? item.extWarranty : item.warrantyYears;
-  const wEnd = new Date(purchase); wEnd.setFullYear(wEnd.getFullYear() + totalW);
-  const mToW = (wEnd - today) / msMonth;
-  const lEnd = new Date(purchase); lEnd.setFullYear(lEnd.getFullYear() + item.lifespanYears);
-  const yToL = (lEnd - today) / msYear;
-  const lPct = Math.min(yearsOwned / item.lifespanYears * 100, 100);
-
-  let ws = 'safe';
-  if (mToW < 0) ws = 'expired';
-  else if (mToW <= 1) ws = 'critical';
-  else if (mToW <= 3) ws = 'warning';
-
-  let ls = 'safe';
-  if (yToL < 0) ls = 'overdue';
-  else if (yToL <= 1) ls = 'warning';
-
-  const wLabel = ws==='expired' ? '期限切れ'
-    : mToW<1 ? `残${Math.ceil(mToW*30)}日`
-    : `残${Math.ceil(mToW)}ヶ月`;
-
+  const today = new Date(), purchase = new Date(item.purchaseDate);
+  const msM = 1000*60*60*24*30.5, msY = msM*12;
+  const yearsOwned = (today-purchase)/msY;
+  const totalW = item.extWarranty>0 ? item.extWarranty : item.warrantyYears;
+  const wEnd = new Date(purchase); wEnd.setFullYear(wEnd.getFullYear()+totalW);
+  const mToW = (wEnd-today)/msM;
+  const lEnd = new Date(purchase); lEnd.setFullYear(lEnd.getFullYear()+item.lifespanYears);
+  const yToL = (lEnd-today)/msY;
+  const lPct = Math.min(yearsOwned/item.lifespanYears*100, 100);
+  let ws='safe';
+  if(mToW<0) ws='expired'; else if(mToW<=1) ws='critical'; else if(mToW<=3) ws='warning';
+  let ls='safe';
+  if(yToL<0) ls='overdue'; else if(yToL<=1) ls='warning';
+  const wLabel = ws==='expired'?'期限切れ':mToW<1?`残${Math.ceil(mToW*30)}日`:`残${Math.ceil(mToW)}ヶ月`;
   return { ws, ls, wLabel, lPct, mToW, yToL, wEnd, lEnd, yearsOwned };
 }
-
-const STATUS_STYLE = {
-  safe:     {color:'#34c759', bg:'#f0fdf4', text:'#166534'},
-  warning:  {color:'#ff9f0a', bg:'#fffbeb', text:'#92400e'},
-  critical: {color:'#ff3b30', bg:'#fff1f0', text:'#991b1b'},
-  expired:  {color:'#8e8e93', bg:'#f2f2f7', text:'#3a3a3c'},
-  overdue:  {color:'#ff3b30', bg:'#fff1f0', text:'#991b1b'},
+const SS = {
+  safe:    {color:'#34c759',bg:'#f0fdf4',text:'#166534'},
+  warning: {color:'#ff9f0a',bg:'#fffbeb',text:'#92400e'},
+  critical:{color:'#ff3b30',bg:'#fff1f0',text:'#991b1b'},
+  expired: {color:'#8e8e93',bg:'#f2f2f7',text:'#3a3a3c'},
+  overdue: {color:'#ff3b30',bg:'#fff1f0',text:'#991b1b'},
 };
-
 function badge(status, label) {
-  const s = STATUS_STYLE[status] || STATUS_STYLE.safe;
-  return `<span class="badge" style="background:${s.bg};color:${s.text}">
-    <span class="badge-dot" style="background:${s.color}"></span>${label}
-  </span>`;
+  const s = SS[status]||SS.safe;
+  return `<span class="badge" style="background:${s.bg};color:${s.text}"><span class="badge-dot" style="background:${s.color}"></span>${label}</span>`;
 }
 
 // ── RENDER ───────────────────────────────────────────────
 function render() {
   const sortBy = document.getElementById('sort-sel').value;
   const cats = TABS[activeTab].cats;
-
-  // tab counts
   ['appliance','personal'].forEach(t => {
     document.getElementById(`badge-${t}`).textContent = items.filter(i=>i.tab===t).length;
   });
-
-  // global stats
-  const allAlerts = items.filter(i => { const s=getStatus(i); return s.ws!=='safe'||s.ls!=='safe'; });
-  document.getElementById('stat-total').textContent = items.length + '点';
+  const allAlerts = items.filter(i=>{ const s=getStatus(i); return s.ws!=='safe'||s.ls!=='safe'; });
+  document.getElementById('stat-total').textContent = items.length+'点';
   const aEl = document.getElementById('stat-alert');
-  aEl.textContent = allAlerts.length + '件';
-  aEl.style.color = allAlerts.length > 0 ? 'var(--yellow)' : 'var(--green)';
-  const total = items.reduce((s,i)=>s+(i.price||0),0);
-  document.getElementById('stat-asset').textContent = '¥' + Math.round(total/10000) + '万';
+  aEl.textContent = allAlerts.length+'件';
+  aEl.style.color = allAlerts.length>0?'var(--yellow)':'var(--green)';
+  document.getElementById('stat-asset').textContent = '¥'+Math.round(items.reduce((s,i)=>s+(i.price||0),0)/10000)+'万';
 
-  // tab items
-  let tabItems = items.filter(i => i.tab === activeTab);
-  const tabAlerts = tabItems.filter(i => { const s=getStatus(i); return s.ws!=='safe'||s.ls!=='safe'; });
+  let tabItems = items.filter(i=>i.tab===activeTab);
+  const tabAlerts = tabItems.filter(i=>{ const s=getStatus(i); return s.ws!=='safe'||s.ls!=='safe'; });
 
-  // alert banner
   const banner = document.getElementById('alert-banner');
-  if (tabAlerts.length > 0) {
-    banner.style.display = 'flex';
-    document.getElementById('alert-title').textContent = `要確認が ${tabAlerts.length}件 あります`;
-    document.getElementById('alert-text').innerHTML = tabAlerts.map(a => {
-      const s = getStatus(a); const r = [];
-      if (s.ws !== 'safe') r.push(`補償${s.wLabel}`);
-      if (s.ls === 'overdue') r.push('耐用超過');
-      else if (s.ls === 'warning') r.push('耐用1年前');
-      const icon = (cats[a.category]||['📦'])[0];
+  if(tabAlerts.length>0){
+    banner.style.display='flex';
+    document.getElementById('alert-title').textContent=`要確認が ${tabAlerts.length}件 あります`;
+    document.getElementById('alert-text').innerHTML = tabAlerts.map(a=>{
+      const s=getStatus(a); const r=[];
+      if(s.ws!=='safe') r.push(`補償${s.wLabel}`);
+      if(s.ls==='overdue') r.push('耐用超過'); else if(s.ls==='warning') r.push('耐用1年前');
+      const icon=(cats[a.category]||['📦'])[0];
       return `<span style="display:inline-block;margin-right:12px">${icon} ${a.name}（${r.join('・')}）</span>`;
     }).join('');
-  } else {
-    banner.style.display = 'none';
-  }
+  } else { banner.style.display='none'; }
 
-  // filter
-  if (filter === 'warning') tabItems = tabAlerts;
+  if(filter==='warning') tabItems=tabAlerts;
+  document.getElementById('filter-all').className='seg-btn'+(filter==='all'?' on':'');
+  document.getElementById('filter-warning').className='seg-btn'+(filter==='warning'?' on':'');
+  document.getElementById('filter-warning').textContent=`要確認 ${tabAlerts.length}`;
+  document.getElementById('filter-all').textContent=`すべて ${items.filter(i=>i.tab===activeTab).length}`;
 
-  // filter buttons
-  document.getElementById('filter-all').className = 'seg-btn' + (filter==='all'?' on':'');
-  document.getElementById('filter-warning').className = 'seg-btn' + (filter==='warning'?' on':'');
-  document.getElementById('filter-warning').textContent = `要確認 ${tabAlerts.length}`;
-  document.getElementById('filter-all').textContent = `すべて ${items.filter(i=>i.tab===activeTab).length}`;
-
-  // sort
-  tabItems = [...tabItems].sort((a,b) => {
-    const sa=getStatus(a), sb=getStatus(b);
-    if (sortBy==='warranty') return sa.mToW - sb.mToW;
-    if (sortBy==='lifespan') return sa.yToL - sb.yToL;
+  tabItems=[...tabItems].sort((a,b)=>{
+    const sa=getStatus(a),sb=getStatus(b);
+    if(sortBy==='warranty') return sa.mToW-sb.mToW;
+    if(sortBy==='lifespan') return sa.yToL-sb.yToL;
     return a.name.localeCompare(b.name,'ja');
   });
 
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('empty');
+  const grid=document.getElementById('grid'), empty=document.getElementById('empty');
+  if(tabItems.length===0){ grid.innerHTML=''; empty.style.display='block'; document.getElementById('empty-icon').textContent=TABS[activeTab].icon; return; }
+  empty.style.display='none';
 
-  if (tabItems.length === 0) {
-    grid.innerHTML = '';
-    empty.style.display = 'block';
-    document.getElementById('empty-icon').textContent = TABS[activeTab].icon;
-    return;
-  }
-  empty.style.display = 'none';
-
-  grid.innerHTML = tabItems.map(item => {
-    const s = getStatus(item);
-    const icon = (cats[item.category]||['📦'])[0];
-    const urgent = s.ws==='critical'||s.ws==='expired'||s.ls==='overdue';
-    const accentColor = urgent ? '#ff3b30' : (s.ws==='warning'||s.ls==='warning') ? '#ff9f0a' : '#34c759';
-    const remaining = Math.max(0, 100 - s.lPct);
-    const hpColor = remaining>50 ? '#34c759' : remaining>20 ? '#ff9f0a' : '#ff3b30';
-    const hpGrad = remaining>50 ? 'linear-gradient(90deg,#34c759,#30d158)'
-      : remaining>20 ? 'linear-gradient(90deg,#ff9f0a,#ffd60a)'
-      : 'linear-gradient(90deg,#ff3b30,#ff6961)';
-    const wSub = item.extWarranty > 0 ? `延長保証 ${item.extWarranty}年` : `メーカー保証 ${item.warrantyYears}年`;
-    const wDate = s.wEnd.toLocaleDateString('ja-JP',{year:'numeric',month:'short',day:'numeric'});
-    const lDate = s.lEnd.toLocaleDateString('ja-JP',{year:'numeric',month:'short'});
-    const priceStr = item.price > 0 ? `¥${(item.price/10000).toFixed(0)}万` : '';
-
+  grid.innerHTML=tabItems.map(item=>{
+    const s=getStatus(item);
+    const icon=(cats[item.category]||['📦'])[0];
+    const urgent=s.ws==='critical'||s.ws==='expired'||s.ls==='overdue';
+    const accent=urgent?'#ff3b30':(s.ws==='warning'||s.ls==='warning')?'#ff9f0a':'#34c759';
+    const rem=Math.max(0,100-s.lPct);
+    const hpColor=rem>50?'#34c759':rem>20?'#ff9f0a':'#ff3b30';
+    const hpGrad=rem>50?'linear-gradient(90deg,#34c759,#30d158)':rem>20?'linear-gradient(90deg,#ff9f0a,#ffd60a)':'linear-gradient(90deg,#ff3b30,#ff6961)';
+    const wSub=item.extWarranty>0?`延長保証 ${item.extWarranty}年`:`メーカー保証 ${item.warrantyYears}年`;
+    const wDate=s.wEnd.toLocaleDateString('ja-JP',{year:'numeric',month:'short',day:'numeric'});
+    const lDate=s.lEnd.toLocaleDateString('ja-JP',{year:'numeric',month:'short'});
+    const priceStr=item.price>0?`¥${(item.price/10000).toFixed(0)}万`:'';
     return `<div class="card${urgent?' urgent':''}" onclick="openEdit(${item.id})">
-      <div class="card-accent" style="background:${accentColor}"></div>
+      <div class="card-accent" style="background:${accent}"></div>
       <div class="card-body">
         <div class="card-head">
           <div class="card-icon">${icon}</div>
-          <div class="card-info">
-            <div class="card-name">${item.name}</div>
-            <div class="card-maker">${item.maker}${item.model?' · '+item.model:''}</div>
-          </div>
+          <div class="card-info"><div class="card-name">${item.name}</div><div class="card-maker">${item.maker||''}${item.model?' · '+item.model:''}</div></div>
           <div class="card-price">${priceStr}</div>
         </div>
         <div class="divider"></div>
+        <div class="sec"><div class="sec-head"><span class="sec-label">🛡 補償期限</span>${badge(s.ws,s.wLabel)}</div><div class="sec-sub">${wSub} · ${wDate}まで</div></div>
         <div class="sec">
-          <div class="sec-head">
-            <span class="sec-label">🛡 補償期限</span>
-            ${badge(s.ws, s.wLabel)}
-          </div>
-          <div class="sec-sub">${wSub} · ${wDate}まで</div>
+          <div class="sec-head"><span class="sec-label">⏱ 耐用年数</span>${s.ls!=='safe'?badge(s.ls,s.ls==='overdue'?'超過中':'1年前'):''}</div>
+          <div class="hp-row"><span style="color:${hpColor}">残り ${rem.toFixed(0)}%</span><span style="color:var(--text3)">${s.yearsOwned.toFixed(1)}年 / ${item.lifespanYears}年使用</span></div>
+          <div class="hp-track"><div class="hp-fill" style="width:${rem}%;background:${hpGrad}"></div></div>
+          <div class="hp-caption">${s.ls==='overdue'?'⚠ 耐用年数を超過しています':`目安 ${lDate}まで`}</div>
         </div>
-        <div class="sec">
-          <div class="sec-head">
-            <span class="sec-label">⏱ 耐用年数</span>
-            ${s.ls!=='safe' ? badge(s.ls, s.ls==='overdue'?'超過中':'1年前') : ''}
-          </div>
-          <div class="hp-row">
-            <span style="color:${hpColor}">残り ${remaining.toFixed(0)}%</span>
-            <span style="color:var(--text3)">${s.yearsOwned.toFixed(1)}年 / ${item.lifespanYears}年使用</span>
-          </div>
-          <div class="hp-track"><div class="hp-fill" style="width:${remaining}%;background:${hpGrad}"></div></div>
-          <div class="hp-caption">${s.ls==='overdue' ? '⚠ 耐用年数を超過しています' : `目安 ${lDate}まで`}</div>
-        </div>
-        ${item.notes ? `<div class="card-note">📝 ${item.notes}</div>` : ''}
+        ${item.notes?`<div class="card-note">📝 ${item.notes}</div>`:''}
       </div>
     </div>`;
   }).join('');
 }
 
-// ── TABS ─────────────────────────────────────────────────
+// ── TABS / FILTER ────────────────────────────────────────
 function switchTab(id) {
-  activeTab = id;
-  filter = 'all';
-  Object.keys(TABS).forEach(t => {
-    document.getElementById(`tab-${t}`).className = 'main-tab' + (t===id?' active':'');
-  });
+  activeTab=id; filter='all';
+  Object.keys(TABS).forEach(t=>{ document.getElementById(`tab-${t}`).className='main-tab'+(t===id?' active':''); });
   render();
 }
+function setFilter(f){ filter=f; render(); }
 
-function setFilter(f) {
-  filter = f;
-  render();
-}
-
-// ── MODAL ────────────────────────────────────────────────
+// ── ITEM MODAL ───────────────────────────────────────────
 function openAdd() {
-  editingId = null;
-  const cats = TABS[activeTab].cats;
-  const firstCat = Object.keys(cats)[0];
-  populateCategorySelect(activeTab);
-  document.getElementById('f-category').value = firstCat;
-  document.getElementById('f-name').value = '';
-  document.getElementById('f-maker').value = '';
-  document.getElementById('f-model').value = '';
-  document.getElementById('f-purchaseDate').value = new Date().toISOString().split('T')[0];
-  document.getElementById('f-price').value = '';
-  document.getElementById('f-warranty').value = 1;
-  document.getElementById('f-ext-warranty').value = 0;
-  document.getElementById('f-lifespan').value = cats[firstCat][1];
-  document.getElementById('f-notes').value = '';
-  document.getElementById('sheet-title').textContent = `${TABS[activeTab].icon} ${TABS[activeTab].label}を追加`;
-  document.getElementById('btn-save').textContent = '追加する';
-  document.getElementById('btn-delete').style.display = 'none';
+  editingId=null;
+  const cats=TABS[activeTab].cats, firstCat=Object.keys(cats)[0];
+  populateCatSelect(activeTab);
+  document.getElementById('f-category').value=firstCat;
+  document.getElementById('f-name').value='';
+  document.getElementById('f-maker').value='';
+  document.getElementById('f-model').value='';
+  document.getElementById('f-purchaseDate').value=new Date().toISOString().split('T')[0];
+  document.getElementById('f-price').value='';
+  document.getElementById('f-warranty').value=1;
+  document.getElementById('f-ext-warranty').value=0;
+  document.getElementById('f-lifespan').value=cats[firstCat][1];
+  document.getElementById('f-notes').value='';
+  document.getElementById('sheet-title').textContent=`${TABS[activeTab].icon} ${TABS[activeTab].label}を追加`;
+  document.getElementById('btn-save').textContent='追加する';
+  document.getElementById('btn-delete').style.display='none';
   document.getElementById('overlay').classList.add('open');
-  setTimeout(() => document.getElementById('f-name').focus(), 350);
+  setTimeout(()=>document.getElementById('f-name').focus(),350);
 }
-
 function openEdit(id) {
-  editingId = id;
-  const item = items.find(i => i.id === id);
-  if (!item) return;
-  populateCategorySelect(item.tab);
-  document.getElementById('f-category').value = item.category;
-  document.getElementById('f-name').value = item.name;
-  document.getElementById('f-maker').value = item.maker || '';
-  document.getElementById('f-model').value = item.model || '';
-  document.getElementById('f-purchaseDate').value = item.purchaseDate;
-  document.getElementById('f-price').value = item.price || '';
-  document.getElementById('f-warranty').value = item.warrantyYears;
-  document.getElementById('f-ext-warranty').value = item.extWarranty;
-  document.getElementById('f-lifespan').value = item.lifespanYears;
-  document.getElementById('f-notes').value = item.notes || '';
-  document.getElementById('sheet-title').textContent = '✏️ 編集';
-  document.getElementById('btn-save').textContent = '変更を保存';
-  document.getElementById('btn-delete').style.display = 'block';
+  editingId=id;
+  const item=items.find(i=>i.id===id); if(!item) return;
+  populateCatSelect(item.tab);
+  document.getElementById('f-category').value=item.category;
+  document.getElementById('f-name').value=item.name;
+  document.getElementById('f-maker').value=item.maker||'';
+  document.getElementById('f-model').value=item.model||'';
+  document.getElementById('f-purchaseDate').value=item.purchaseDate;
+  document.getElementById('f-price').value=item.price||'';
+  document.getElementById('f-warranty').value=item.warrantyYears;
+  document.getElementById('f-ext-warranty').value=item.extWarranty;
+  document.getElementById('f-lifespan').value=item.lifespanYears;
+  document.getElementById('f-notes').value=item.notes||'';
+  document.getElementById('sheet-title').textContent='✏️ 編集';
+  document.getElementById('btn-save').textContent='変更を保存';
+  document.getElementById('btn-delete').style.display='block';
   document.getElementById('overlay').classList.add('open');
 }
-
-function closeModal() {
-  document.getElementById('overlay').classList.remove('open');
+function closeModal(){ document.getElementById('overlay').classList.remove('open'); }
+function handleOverlayClick(e){ if(e.target===document.getElementById('overlay')) closeModal(); }
+function populateCatSelect(tabId) {
+  const cats=TABS[tabId].cats;
+  document.getElementById('f-category').innerHTML=Object.entries(cats).map(([k,v])=>`<option value="${k}">${v[0]} ${k}</option>`).join('');
 }
-
-function handleOverlayClick(e) {
-  if (e.target === document.getElementById('overlay')) closeModal();
-}
-
-function populateCategorySelect(tabId) {
-  const cats = TABS[tabId].cats;
-  const sel = document.getElementById('f-category');
-  sel.innerHTML = Object.entries(cats).map(([k,v]) =>
-    `<option value="${k}">${v[0]} ${k}</option>`
-  ).join('');
-}
-
 function onCategoryChange() {
-  const tab = editingId ? items.find(i=>i.id===editingId)?.tab || activeTab : activeTab;
-  const cats = TABS[tab].cats;
-  const cat = document.getElementById('f-category').value;
-  if (cats[cat]) document.getElementById('f-lifespan').value = cats[cat][1];
+  const tab=editingId?items.find(i=>i.id===editingId)?.tab||activeTab:activeTab;
+  const cats=TABS[tab].cats, cat=document.getElementById('f-category').value;
+  if(cats[cat]) document.getElementById('f-lifespan').value=cats[cat][1];
 }
-
 function saveItem() {
-  const name = document.getElementById('f-name').value.trim();
-  const date = document.getElementById('f-purchaseDate').value;
-  if (!name || !date) { alert('名前と購入日は必須です'); return; }
-
-  const form = {
-    tab: editingId ? items.find(i=>i.id===editingId).tab : activeTab,
-    category: document.getElementById('f-category').value,
-    name,
-    maker: document.getElementById('f-maker').value.trim(),
-    model: document.getElementById('f-model').value.trim(),
-    purchaseDate: date,
-    price: Number(document.getElementById('f-price').value) || 0,
-    warrantyYears: Number(document.getElementById('f-warranty').value) || 1,
-    extWarranty: Number(document.getElementById('f-ext-warranty').value) || 0,
-    lifespanYears: Number(document.getElementById('f-lifespan').value) || 5,
-    notes: document.getElementById('f-notes').value.trim(),
+  const name=document.getElementById('f-name').value.trim();
+  const date=document.getElementById('f-purchaseDate').value;
+  if(!name||!date){ alert('名前と購入日は必須です'); return; }
+  const form={
+    tab:editingId?items.find(i=>i.id===editingId).tab:activeTab,
+    category:document.getElementById('f-category').value,
+    name, maker:document.getElementById('f-maker').value.trim(),
+    model:document.getElementById('f-model').value.trim(),
+    purchaseDate:date,
+    price:Number(document.getElementById('f-price').value)||0,
+    warrantyYears:Number(document.getElementById('f-warranty').value)||1,
+    extWarranty:Number(document.getElementById('f-ext-warranty').value)||0,
+    lifespanYears:Number(document.getElementById('f-lifespan').value)||5,
+    notes:document.getElementById('f-notes').value.trim(),
   };
-
-  if (editingId) {
-    items = items.map(i => i.id === editingId ? {...form, id: editingId} : i);
-  } else {
-    items.push({...form, id: Date.now()});
-  }
-  save(); closeModal(); render();
+  if(editingId){ items=items.map(i=>i.id===editingId?{...form,id:editingId}:i); }
+  else { items.push({...form,id:Date.now()}); }
+  closeModal(); render(); ghPut();
+}
+function deleteItem() {
+  if(!editingId) return;
+  if(!confirm('削除しますか？')) return;
+  items=items.filter(i=>i.id!==editingId);
+  closeModal(); render(); ghPut();
 }
 
-function deleteItem() {
-  if (!editingId) return;
-  if (!confirm('削除しますか？')) return;
-  items = items.filter(i => i.id !== editingId);
-  save(); closeModal(); render();
+// ── CONFIG ───────────────────────────────────────────────
+function saveConfig() {
+  const user=document.getElementById('cfg-user').value.trim();
+  const repo=document.getElementById('cfg-repo').value.trim();
+  const token=document.getElementById('cfg-token').value.trim();
+  if(!user||!repo||!token){ alert('すべて入力してください'); return; }
+  setCfg(user,repo,token);
+  document.getElementById('setup-screen').classList.add('hidden');
+  ghGet();
+}
+function openConfig() {
+  const cfg=getCfg();
+  document.getElementById('cfg2-user').value=cfg.user;
+  document.getElementById('cfg2-repo').value=cfg.repo;
+  document.getElementById('cfg2-token').value=cfg.token;
+  document.getElementById('cfg-overlay').classList.add('open');
+}
+function closeCfg(){ document.getElementById('cfg-overlay').classList.remove('open'); }
+function saveConfig2() {
+  const user=document.getElementById('cfg2-user').value.trim();
+  const repo=document.getElementById('cfg2-repo').value.trim();
+  const token=document.getElementById('cfg2-token').value.trim();
+  if(!user||!repo||!token){ alert('すべて入力してください'); return; }
+  setCfg(user,repo,token);
+  closeCfg(); ghGet();
 }
 
 // ── INIT ─────────────────────────────────────────────────
-load();
-render();
+(function init() {
+  const cfg=getCfg();
+  if(!cfg.user||!cfg.repo||!cfg.token) {
+    // show setup screen
+    document.getElementById('setup-screen').classList.remove('hidden');
+    setSyncState('err','未設定');
+  } else {
+    document.getElementById('setup-screen').classList.add('hidden');
+    loadLocal(); render();
+    ghGet();
+  }
+})();
 </script>
 
 </body>
