@@ -43,7 +43,7 @@
   },
   {
     "tab": "appliance",
-    "category": "冷蔵庫",
+    "category": "電子レンジ",
     "name": "アイリスオーヤマ ホームベーカリー",
     "maker": "アイリスオーヤマ",
     "model": "",
@@ -51,7 +51,7 @@
     "price": 0,
     "warrantyYears": 1,
     "extWarranty": 0,
-    "lifespanYears": 5,
+    "lifespanYears": 10,
     "notes": "",
     "id": 1774625629245
   },
