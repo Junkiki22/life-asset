@@ -110,5 +110,19 @@
     "lifespanYears": 5,
     "notes": "",
     "id": 1774626832925
+  },
+  {
+    "tab": "appliance",
+    "category": "その他（家電）",
+    "name": "加湿器Switch bot",
+    "maker": "",
+    "model": "",
+    "purchaseDate": "2026-02-18",
+    "price": 0,
+    "warrantyYears": 1,
+    "extWarranty": 0,
+    "lifespanYears": 3,
+    "notes": "",
+    "id": 1774626993894
   }
 ]
