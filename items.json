@@ -124,5 +124,19 @@
     "lifespanYears": 3,
     "notes": "",
     "id": 1774626993894
+  },
+  {
+    "tab": "appliance",
+    "category": "掃除機",
+    "name": "Eufy",
+    "maker": "",
+    "model": "",
+    "purchaseDate": "2025-05-10",
+    "price": 0,
+    "warrantyYears": 1,
+    "extWarranty": 0,
+    "lifespanYears": 5,
+    "notes": "",
+    "id": 1774627322150
   }
 ]
