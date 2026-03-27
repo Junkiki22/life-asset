@@ -26,5 +26,19 @@
     "lifespanYears": 2,
     "notes": "要返却",
     "id": 1774625237385
+  },
+  {
+    "tab": "appliance",
+    "category": "冷蔵庫",
+    "name": "FPD チューナーレステレビ 50V型",
+    "maker": "FPD",
+    "model": "",
+    "purchaseDate": "2025-06-12",
+    "price": 0,
+    "warrantyYears": 1,
+    "extWarranty": 0,
+    "lifespanYears": 7,
+    "notes": "",
+    "id": 1774625514815
   }
 ]
