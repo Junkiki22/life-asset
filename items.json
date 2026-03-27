@@ -12,5 +12,19 @@
     "lifespanYears": 2,
     "notes": "",
     "id": 1774624168464
+  },
+  {
+    "tab": "personal",
+    "category": "スマートフォン",
+    "name": "iPhone17",
+    "maker": "Apple",
+    "model": "",
+    "purchaseDate": "2026-03-01",
+    "price": 0,
+    "warrantyYears": 2,
+    "extWarranty": 0,
+    "lifespanYears": 2,
+    "notes": "要返却",
+    "id": 1774625237385
   }
 ]
