@@ -96,5 +96,19 @@
     "lifespanYears": 3,
     "notes": "",
     "id": 1774626629891
+  },
+  {
+    "tab": "appliance",
+    "category": "その他（家電）",
+    "name": "空気清浄機Switch bot",
+    "maker": "",
+    "model": "",
+    "purchaseDate": "2026-02-18",
+    "price": 0,
+    "warrantyYears": 1,
+    "extWarranty": 4,
+    "lifespanYears": 5,
+    "notes": "",
+    "id": 1774626832925
   }
 ]
