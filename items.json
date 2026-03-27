@@ -40,5 +40,19 @@
     "lifespanYears": 7,
     "notes": "",
     "id": 1774625514815
+  },
+  {
+    "tab": "appliance",
+    "category": "冷蔵庫",
+    "name": "アイリスオーヤマ ホームベーカリー",
+    "maker": "アイリスオーヤマ",
+    "model": "",
+    "purchaseDate": "2025-09-30",
+    "price": 0,
+    "warrantyYears": 1,
+    "extWarranty": 0,
+    "lifespanYears": 10,
+    "notes": "",
+    "id": 1774625629245
   }
 ]
